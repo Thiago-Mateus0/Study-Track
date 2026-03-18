@@ -1,6 +1,6 @@
 #  Study Track
 
-Sou o Thiago, calouro na faculdade e esse é meu primeiro projeto pessoal.
+Prazer, sou o Thiago, calouro na faculdade e esse é meu primeiro projeto pessoal.
 
 Uso o app YPT todo dia e quando entrei na faculdade pensei: por que não criar algo parecido pra acompanhar meus próprios estudos? Foi daí que surgiu o Study Track.
 
