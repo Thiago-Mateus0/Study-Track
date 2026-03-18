@@ -1,4 +1,4 @@
-# 📚 Study Track
+#  Study Track
 
 Sou o Thiago, calouro na faculdade e esse é meu primeiro projeto pessoal.
 
