@@ -3,6 +3,19 @@
 
 import json
 import os
+from datetime import date
+
+# Pede um número inteiro positivo e repete a pergunta se a pessoa digitar outra coisa
+def pedir_numero(pergunta):
+    while True:
+        try:
+            numero = int(input(pergunta))
+            if numero > 0:
+                return numero
+        except ValueError:
+            pass
+        print("Digite um numero inteiro maior que zero.")
+
 
 # Carrega os dados salvos, ou começa do zero se for a primeira vez
 if os.path.exists("data.json"):
@@ -26,9 +39,9 @@ while True:
     # ----- REGISTRAR ESTUDO -----
     if opcao == "1":
         topico = input("O que voce estudou? ")
-        minutos = int(input("Por quantos minutos? "))
+        minutos = pedir_numero("Por quantos minutos? ")
 
-        sessao = {"topico": topico, "minutos": minutos}
+        sessao = {"topico": topico, "minutos": minutos, "data": str(date.today())}
         sessoes.append(sessao)
 
         # Salva no arquivo apos cada registro
@@ -37,11 +50,17 @@ while True:
 
         print("Sessao salva!")
 
-        if minutos >= meta_minutos:
+        # Soma so o que foi estudado hoje (sessoes antigas, sem data, nao entram)
+        hoje = 0
+        for s in sessoes:
+            if s.get("data") == str(date.today()):
+                hoje = hoje + s["minutos"]
+
+        if hoje >= meta_minutos:
             print("Voce atingiu sua meta do dia!")
         else:
-            faltam = meta_minutos - minutos
-            print("Faltam " + str(faltam) + " minutos para sua meta.")
+            faltam = meta_minutos - hoje
+            print("Hoje voce estudou " + str(hoje) + " min. Faltam " + str(faltam) + " minutos para sua meta.")
 
     # ----- VER PROGRESSO -----
     elif opcao == "2":
@@ -60,7 +79,7 @@ while True:
 
     # ----- MUDAR META -----
     elif opcao == "3":
-        meta_minutos = int(input("Nova meta em minutos: "))
+        meta_minutos = pedir_numero("Nova meta em minutos: ")
 
         # Salva a nova meta no arquivo
         with open("data.json", "w") as f:
