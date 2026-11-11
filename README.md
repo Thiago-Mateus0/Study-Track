@@ -42,7 +42,7 @@ Quero que esse projeto cresça junto comigo. Conforme for aprendendo coisas nova
 
 - [x] Salvar os dados em um arquivo `.json`
 - [ ] Separar o código em funções
-- [ ] Adicionar a data em cada sessão
+- [x] Adicionar a data em cada sessão (a meta do dia soma só o que foi estudado hoje)
 - [ ] Criar uma interface simples no navegador
 
 ---
@@ -53,4 +53,4 @@ Quero construir um portfólio honesto com o meu momento atual. Esse projeto vai 
 
 > *"Be water my friend."* — Bruce Lee
 
-Feito por [Thiago Mateus](https://github.com/ThiagoMateus7)
+Feito por [Thiago Mateus](https://github.com/Thiago-Mateus0)
